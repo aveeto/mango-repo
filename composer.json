@@ -44,6 +44,12 @@
             ]
         }
     },
+    "repositories": [
+	    {
+	        "type": "vcs",
+	        "url": "https://github.com/aveeto/pine-annotations.git"
+	    }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
