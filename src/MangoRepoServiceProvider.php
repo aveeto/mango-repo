@@ -3,7 +3,6 @@
 namespace LaraChimp\MangoRepo;
 
 use Illuminate\Support\ServiceProvider as BaseProvider;
-use LaraChimp\PineAnnotations\Support\Reader\AnnotationsReader;
 use LaraChimp\MangoRepo\Contracts\RepositoryInterface as RepositoryContract;
 
 class MangoRepoServiceProvider extends BaseProvider
@@ -22,8 +21,6 @@ class MangoRepoServiceProvider extends BaseProvider
                 Console\MakeCommand::class,
             ]);
         }
-
-        $this->bootAnnotations();
     }
 
     /**
@@ -36,16 +33,6 @@ class MangoRepoServiceProvider extends BaseProvider
         $this->registerRepositories();
     }
 
-    /**
-     * Add annotation file to registry.
-     *
-     * @return void
-     */
-    protected function bootAnnotations()
-    {
-        $this->app->make(AnnotationsReader::class)
-                  ->addFilesToRegistry(__DIR__.'/Annotations/EloquentModel.php');
-    }
 
     /**
      * Boot Repositories when resolving them.
